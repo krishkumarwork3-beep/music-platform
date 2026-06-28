@@ -20,3 +20,5 @@ time = "0.3.20"
 argon2 = "0.5.1"
 jsonwebtoken = "9.2.0"
 validator = { version = "0.16.1", features = ["derive"] }
+tokio-tungstenite = "0.24.0"
+symphonia = { version = "0.5.4", features = ["aac", "flac", "mp3", "wav", "ogg"] }
