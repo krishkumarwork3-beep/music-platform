@@ -89,3 +89,11 @@ FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 CREATE TRIGGER update_audio_files_updated_at
 BEFORE UPDATE ON audio_files
 FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+CREATE TRIGGER update_playlists_updated_at
+BEFORE UPDATE ON playlists
+FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+CREATE TRIGGER update_playlist_tracks_updated_at
+BEFORE UPDATE ON playlist_tracks
+FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
