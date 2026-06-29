@@ -44,3 +44,10 @@ CREATE TABLE playlists (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Playlist Tracks (Ordered) Table
+CREATE TABLE playlist_tracks (
+    playlist_id UUID REFERENCES playlists(id) ON DELETE CASCADE,
+    track_id UUID REFERENCES tracks(id) ON DELETE CASCADE,
+    track_order INTEGER NOT NULL,
+    PRIMARY KEY (playlist_id, track_id)  -- Composite primary key
+);
