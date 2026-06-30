@@ -105,3 +105,12 @@ pub struct PlaybackHistory {
     pub played_at: NaiveDateTime,
     pub duration_played: Duration,
 }
+
+// UserFavorite Model
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct UserFavorite {
+    pub id: Uuid,
+    pub user_id: Uuid,
+    pub track_id: Uuid,
+    pub created_at: NaiveDateTime,
+}
