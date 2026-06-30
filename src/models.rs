@@ -95,3 +95,13 @@ pub struct PlaylistTrack {
     pub track_id: Uuid,
     pub track_order: i32,
 }
+
+// PlaybackHistory Model
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct PlaybackHistory {
+    pub id: Uuid,
+    pub user_id: Uuid,
+    pub track_id: Uuid,
+    pub played_at: NaiveDateTime,
+    pub duration_played: Duration,
+}
