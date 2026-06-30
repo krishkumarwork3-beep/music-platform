@@ -92,3 +92,15 @@ pub struct FilterUserDto {
     #[serde(rename = "updatedAt")]
     pub updated_at: NaiveDateTime,
 }
+
+impl FilterUserDto {
+    pub fn filter_user(user: &User) -> Self {
+        FilterUserDto {
+            id: user.id.to_string(),
+            username: user.username.to_owned(),
+            email: user.email.to_owned(),
+            created_at: user.created_at.unwrap(),
+            updated_at: user.updated_at.unwrap(),
+        }
+    }
+}
