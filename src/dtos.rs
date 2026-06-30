@@ -44,3 +44,15 @@ fn validate_username(username: &str) -> Result<(), ValidationError> {
 
     Ok(())
 }
+
+#[derive(Validate, Debug, Default, Clone, Serialize, Deserialize)]
+pub struct LoginUserDto {
+    #[validate(custom = "validate_identifier")]
+    pub identifier: String,
+
+    #[validate(
+        length(min = 1, message = "Password is required"),
+        length(min = 6, message = "Password must be at least 6 characters")
+    )]
+    pub password: String,
+}
