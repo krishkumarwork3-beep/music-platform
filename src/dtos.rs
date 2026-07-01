@@ -193,3 +193,20 @@ pub struct FilterTrackDto {
     pub played_at: Option<chrono::NaiveDateTime>,
     pub is_created_by_user: Option<bool>,
 }
+
+impl FilterTrackDto {
+    pub fn filter_track(track: &TrackDto) -> Self {
+        FilterTrackDto {
+            id: track.id.clone(),
+            title: track.title.clone(),
+            artist: track.artist.clone(),
+            duration_minutes: convert_duration_to_minutes(&track.duration),
+            duration_seconds: convert_duration_to_seconds(&track.duration),
+            duration_played: convert_duration_to_seconds(&track.duration_played),
+            file_name: track.file_name.clone(),
+            thumbnail_name: track.thumbnail_name.clone(),
+            is_favorite: track.is_favorite.clone(),
+            played_at: track.played_at.clone(),
+            is_created_by_user: track.is_created_by_user.clone()
+        }
+    }
