@@ -161,3 +161,15 @@ pub struct UserPasswordUpdateDto {
 pub struct UploadResponse {
    pub track_id: uuid::Uuid,
 }
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct IncompleteTrackInfo {
+    pub title: Option<String>,
+    pub artist: Option<String>,
+    pub thumbnail_name: Option<String>,
+    pub file_name: Option<String>,
+    pub track_id: Option<uuid::Uuid>,
+    pub total_chunks: i32,
+    pub uploaded_chunks: i32,
+    pub current_chunk: i32,
+}
