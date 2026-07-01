@@ -178,3 +178,18 @@ pub struct IncompleteTrackInfo {
 pub struct IncompleteTrackInfoResponse {
     pub incomplete_track_info: Vec<IncompleteTrackInfo>,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct FilterTrackDto {
+    pub id: uuid::Uuid,
+    pub title: Option<String>,
+    pub artist: Option<String>,
+    pub duration_minutes: f64,
+    pub duration_seconds: f64,
+    pub duration_played: f64,
+    pub file_name: Option<String>,
+    pub thumbnail_name: Option<String>,
+    pub is_favorite: Option<bool>,
+    pub played_at: Option<chrono::NaiveDateTime>,
+    pub is_created_by_user: Option<bool>,
+}
